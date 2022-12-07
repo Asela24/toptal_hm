@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+        <link href="./css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <div class="manager__container"> 
+                <form class="input__container"> 
+                    <input id="taskTitle" name="title" placeholder="Task title" required>
+                    <input id="taskDescription" placeholder ='Description' name="description">
+                    <button class='input__button' type="submit">Add task</button>
+                </form>
+                <div class="tasks__container">
+
+                </div>
+            </div>
+        </main>
+        <template>
+            <div class="task__container">
+                <input type="checkbox" class="checkbox1">
+                <input class="task__title" disabled></input>
+                <input id ='description' class="task__description" disabled>
+                </input>
+                <img src="./img/delete-svgrepo-com (1).svg" alt="delete task">
+            </div>
+        </template>
+        <script src="dist/bundle.js"></script>
+    </body>
+    </html>
+</DOCTYPE>

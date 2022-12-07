@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+main {
+    height: 100vh;
+    background-color: #195e1f57;
+}
+
+.manager__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    
+}
+
+.input__container {
+    display: grid;
+    grid-template-areas: 
+    'title button'
+    'description button';
+    grid-template-rows: repeat(2, 40px);
+    grid-template-columns: 80% 1fr;
+    gap: 15px;
+
+    width: 500px;
+}
+
+
+.input__button {
+    grid-area: button;
+    align-self: center;
+    height: 50px;
+    background-color: #c91e1e4a;
+}
+
+.tasks__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.task__container {
+    display: grid;
+    width: 600px;
+    grid-template-areas: 
+        'checkbox title delete'
+        '. description delete';
+    grid-template-columns: 30px 1fr 25px;  
+    border-top: 1px solid #c91e1e4a;
+    min-height: 60px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+
+.task__container:last-child {
+    border-bottom: 1px solid #c91e1e4a;;  
+}
+
+
+input[type='checkbox'] {
+    grid-area: checkbox;
+}
+
+.task__title {
+    grid-area: title;
+    font-size: 1.3em;
+}
+
+.task__description {
+    grid-area: description;
+    font-size: 0.9em;
+    color: #261212d9;
+}
+
+.task__container input {
+    border: none;
+    background: none;
+    padding-top: 5px;
+    display: block;
+}
+.task__container input:focus-visible {
+    outline: none;
+}
+
+.img {
+    width: 20px;
+    grid-area: delete;
+}
+
