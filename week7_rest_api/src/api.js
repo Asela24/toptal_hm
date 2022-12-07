@@ -6,18 +6,10 @@ const URL ='http://localhost:3001/tasks';
 const getAll = () => {
     fetch(URL).then(response =>  response.json())
     .then(data => data.forEach(task => {
-        
         const newTask = new createNewTask(task);
-
         newTask.create()
     }))
 }
-
-/* const data = {
-    "title": "Buy milk",
-    "description": "I need it, my cat needs it.",
-    "done": false
-  } */
 
 const createTask = (data) => {
     fetch(URL, {
@@ -30,25 +22,22 @@ const createTask = (data) => {
     .then(response =>  response.json())
     .then(data => {
         const newTask = new createNewTask(data);
-        console.log(data)
-        newTask.create()
+        newTask.create();
     })
 }
 
 const getById = (id) => {
    fetch(URL + '/' + id)
    .then(response => response.json())
-   .then(data => console.log(data))
+   .catch(err => console.log(err)) 
 } 
-
 
 const deleteTask = (id) => {
     fetch(URL + '/' + id, {
         method: 'DELETE',
     })
     .then(response => response.json())
-    .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-    .catch(err => console.log(err)) // Do something with the error
+    .catch(err => console.log(err)) 
 }
 
 
@@ -62,7 +51,7 @@ const updateTask = (id, data) => {
         }
      })
      .then(response => response.json())
-     .then(data => console.log(data))
+     .catch(err => console.log(err)) 
 }
 
 export {getAll, createTask, getById, updateTask, deleteTask};
