@@ -67,7 +67,7 @@ export class createNewTask {
     }
 
     createCheckbox() {
-        const checkbox = this.clone.querySelector('.checkbox1');       
+        const checkbox = this.clone.querySelector('.checkbox');       
         checkbox.checked = this.done ? 'checked': null;
 
         checkbox.addEventListener('click', () =>  {

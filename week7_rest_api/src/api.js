@@ -42,7 +42,6 @@ const deleteTask = (id) => {
 
 
 const updateTask = (id, data) => {
-    console.log(JSON.stringify(data))
      fetch(URL + '/' + id, {
         method: 'PATCH',
         body: JSON.stringify(data),
