@@ -1,4 +1,4 @@
-class flagCard {
+class CountryCard {
     constructor(country) {
         this.capital = country.capital ? country.capital : 'No capital'
         this.name = country.name.official 
@@ -9,7 +9,8 @@ class flagCard {
     }
 
     createCard() {  
-        const mainContainer = document.querySelector('main');
+        const mainContainer = document.querySelector('.cards__container');
+
         this.createElement('name', 'textContent');
         this.createElement('flag', 'src');
         this.createElement('capital', 'textContent');
@@ -23,15 +24,6 @@ class flagCard {
         const element = this.clone.querySelector(`.country__${type}`);
         element[property] = this[type]
     }
-
-    createCountryName(type) {
-        const element = this.clone.querySelector(`.country__name`);
-        element.textContent = this.countryName;
-    }
-
-    createFlag() {
-        const element = this.clone.querySelector(`.country__flag`);
-    }
 }
 
-export default flagCard; 
+export default CountryCard; 
