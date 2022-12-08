@@ -5,10 +5,7 @@ getAllCountries();
 const input = document.querySelector('input');
 
 
-input.addEventListener('keydown', async (e) => {
-    const cardsContainer = document.querySelector('.cards__container');
-    cardsContainer.innerHTML = '';
-
+input.addEventListener('keydown', (e) => {
     if (e.target.value === '') {
         getAllCountries();
     } else {

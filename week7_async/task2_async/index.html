@@ -7,9 +7,11 @@
     </head>
     <body>
         <main>
-            <label for="find__input">Find by country name
+            <div class='input__container'> 
+                <label for="find__input">Find by country name</label>
                 <input id="find__input" placeholder="Country name">
-            </label>
+                <button type="submit">Submit</button>
+            </div>
             <div class="cards__container">
             </div>
         </main>
@@ -18,10 +20,12 @@
             <div class="card__container">
                 <h2 class="country__name"></h2>
                 <img class="country__flag">
-                <div class="capital__container">Capital: 
+                <div class="capital__container">
+                    Capital: 
                     <div class="country__capital"></div>
                 </div>
-                <div class="language__container">Language: 
+                <div class="language__container">
+                    Language: 
                     <div class="country__language"></div>
                 </div>
             </div>
