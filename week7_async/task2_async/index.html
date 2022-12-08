@@ -7,30 +7,30 @@
     </head>
     <body>
         <main>
-            <div class='input__container'> 
+            <div class='input__container flex_content'> 
                 <label for="find__input">Find by country name</label>
                 <input id="find__input" placeholder="Country name">
-                <button type="submit">Submit</button>
             </div>
-            <div class="cards__container">
+            <div class="cards__container flex_content">
             </div>
         </main>
 
         <template> 
-            <div class="card__container">
-                <h2 class="country__name"></h2>
+            <div class="card__container flex_content">
+                <h2 class="country__name flex_content"></h2>
                 <img class="country__flag">
                 <div class="capital__container">
                     Capital: 
-                    <div class="country__capital"></div>
+                    <div class="country__capital flex_content"></div>
                 </div>
                 <div class="language__container">
                     Language: 
-                    <div class="country__language"></div>
+                    <div class="country__language flex_content"></div>
                 </div>
             </div>
-        </template>
-        <script  type="module" src="./flagCardCreator.js"></script>
+        </template>    
+        <script type="module" src="./utils.js"></script>
+        <script type="module" src="./flagCardCreator.js"></script>
         <script type="module" src="./requests.js"></script>
         <script type="module" src="./code.js"></script>
     </body>
