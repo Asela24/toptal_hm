@@ -1,0 +1,16 @@
+.color__container {
+    width: 200px;
+    height: 55px;
+    border-radius: 5px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: -1px 0px 4px 2px #00000042;
+}
+
+.colorText {
+    font-size: 15px;
+    text-shadow: 1px 0 10px rgb(251 251 251);
+}
