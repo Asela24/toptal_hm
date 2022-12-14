@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 
 export default function App() {
-  
+
   const [isOffClass, setOffClass] = useState('');
   const colorsArray = ['red', 'yellow', 'blue', 'green', 'red', 'yellow', 'blue', 'green'];
 
@@ -19,8 +19,8 @@ export default function App() {
   return (
     <main>
       <section className="lights">
-        {colorsArray.map(valueOfColor => 
-          <Light color={valueOfColor} offClass={isOffClass} />
+        {colorsArray.map((valueOfColor, index) => 
+          <Light color={valueOfColor} offClass={isOffClass}  key={index}/>
         )}
       </section>
       <section className="buttons">
