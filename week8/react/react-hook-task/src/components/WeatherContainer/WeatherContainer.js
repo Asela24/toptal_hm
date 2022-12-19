@@ -6,7 +6,7 @@ import WeatherDataContainer from "../WeatherDataContainer/WeatherDataContainer";
 
 const WeatherContainer = ({coords}) => {
 
-    const 
+
     const  { getWeatherData, weatherData } = useWeatherData(coords);
     
     useEffect(() => {

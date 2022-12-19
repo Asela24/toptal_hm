@@ -1,38 +1,35 @@
-export const API_KEY = '60DkEgIo47PzMx5HhSxgpTz2GjNy0PTJ';
-export const API_URL = 'http://dataservice.accuweather.com/';
+import { extractDataFromResponse } from './utils'
+ 
+const API_KEY = '60DkEgIo47PzMx5HhSxgpTz2GjNy0PTJ';
+const API_KEY2 = '7AUDDMiJoAbBFBpeprrtFltgWow1hGvt';
+const API_KEY3 = 'CcVmxB5hJtU7Hq2GjFUhJTeHyq5H9FOU';
+const API_URL = 'http://dataservice.accuweather.com/';
 const API_SEARCH = 'locations/v1/cities/geoposition/search';
+const API_SEARCH_BY_CITY = 'locations/v1/cities/search';
 const API_FORECAST = 'forecasts/v1/daily/5day/'
 
-window.onload = async function() {
- const locationKey = await getLocationKey();
-    await getForeCast(locationKey);
+const getBasicInformationByCityName = async (cityName) => {
+    
+    const response = await fetch(`${API_URL}${API_SEARCH_BY_CITY}?apikey=${API_KEY3}&q=${cityName}`)
+
+    const resultJson = await response.json()
+    const locationKey = resultJson[0].Key
+    const { AdministrativeArea : { EnglishName : city }, LocalizedName: neighborhood }  = await resultJson[0];
+
+    return { locationKey, city, neighborhood }
 }
 
-
-const getLocationKey = async () => {
-    const information = await  getLocation();
-    const latitude = information.coords.latitude;
-    const longitude = information.coords.longitude;
-    const getApiKey = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${latitude},${longitude}`);
-    const getResponse = await getApiKey.json();
-
-    const locationKey = await getResponse.Key;
-
-    return locationKey
-}
-
-//date,pics,desc, time max and min
-
-const getForeCast = async (locationKey) => {
-
-    const fetchForecastData = await fetch(`${API_URL}${API_FORECAST}${locationKey}?apikey=${API_KEY}`);
-    const result = await fetchForecastData.json();
-    const weatherArray = result.DailyForecasts;
+const getForecastData = async (locationKey) => {
+    const fetchForecastData = await fetch(`${API_URL}${API_FORECAST}${locationKey}?apikey=${API_KEY3}`); 
+    const result = await fetchForecastData.json(); 
   
+    const weatherDayData = result.DailyForecasts; 
+    const weatherData  = extractDataFromResponse(weatherDayData)
+    console.log(weatherData)
+  
+    return weatherData 
 }
 
-const getLocationFromUser = () => new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition((success) => resolve(success), error => reject(error))
-    })
 
-const getLocation = async () => await getLocationFromUser();
+
+export { getBasicInformationByCityName, getForecastData };
