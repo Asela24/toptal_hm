@@ -1,13 +1,11 @@
-import WeatherCard from "../WeatherCard/WeatherCard";
-import { useWeatherData, useLocationKey } from "../../hooks/useWeatherData";
+import { useWeatherData } from "../../hooks/useWeatherData";
 import { useEffect } from "react";
 import Loading from "../Loading";
 import WeatherDataContainer from "../WeatherDataContainer/WeatherDataContainer";
 
-const WeatherContainer = ({coords}) => {
+const WeatherContainer = ({ coords }) => {
 
-
-    const  { getWeatherData, weatherData } = useWeatherData(coords);
+    const  { getWeatherData, weatherData, basicInformation } = useWeatherData(coords);
     
     useEffect(() => {
         getWeatherData()
@@ -15,7 +13,7 @@ const WeatherContainer = ({coords}) => {
     
     return (
         <>
-            {weatherData === 'loading' ? <Loading/> :  <WeatherDataContainer weatherData={weatherData} />}
+            {weatherData === 'loading' ? <Loading/> :  <WeatherDataContainer weatherData={ weatherData } basicInformation={ basicInformation }/>}
         </>
     )
 }

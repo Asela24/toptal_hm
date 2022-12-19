@@ -5,7 +5,7 @@ const CardSection = ({dayWeather: {date, iconId, description, maxTemp, minTemp}}
             <section className="weatherCard__date">
                 {date}
             </section>
-    
+
             <section className="weatherCard__picture">
                 <img  src={`https://developer.accuweather.com/sites/default/files/${iconId}-s.png`} alt={'weather Picture'} />
             </section>

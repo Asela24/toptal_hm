@@ -24,4 +24,13 @@ const setCorrectId = (id) => {
     return id
 }
 
-export {extractDataFromResponse, covertFtoC, setCorrectId};
+const validateInput = (value, buttonRef) => {
+    if (value.match(/[A-Za-z]/) || value.match(/[A-Za-z]\s[A-Za-z]\D/)) {
+        buttonRef.current.disabled = false;
+    }
+    else {
+        buttonRef.current.disabled = true;
+    }
+}
+
+export {extractDataFromResponse, covertFtoC, setCorrectId, validateInput};

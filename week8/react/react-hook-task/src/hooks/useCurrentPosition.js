@@ -7,7 +7,6 @@ const useCurrentPosition = () => {
         try {
             const { coords: { latitude, longitude } } = await getLocationFromUser();
             setLocationCoords({ state: 'success', coords: {latitude, longitude }})
-            console.log(locationCoords)
             
         } catch (e) {
             setLocationCoords({state: 'error'})
@@ -22,5 +21,5 @@ const getLocationFromUser = () => new Promise((resolve, reject) => {
 })
 
 
-export { useCurrentPosition};
+export { useCurrentPosition };
 

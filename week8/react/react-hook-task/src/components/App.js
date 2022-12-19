@@ -1,9 +1,7 @@
-import WeatherCard from './WeatherCard/WeatherCard';
 import '../style/style.css';
 import '../style/variables.css';
 import { useCurrentPosition} from '../hooks/useCurrentPosition';
-import { useWeatherData } from '../hooks/useWeatherData';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Loading from './Loading';
 import WeatherContainer from './WeatherContainer';
 import SearchComponent from './SearchComponent/SearchComponent';
@@ -39,11 +37,7 @@ function App() {
  
   return (
     <main className="page">
-  
-      { 
-      changeComponentsRender()
-      }
-     
+      {changeComponentsRender()}
     </main>
   );
 }
