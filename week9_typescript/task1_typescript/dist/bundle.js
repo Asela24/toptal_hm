@@ -1,0 +1,1 @@
+(()=>{"use strict";var M;!function(M){M[M.FAST=10]="FAST",M[M.MEDIUM=20]="MEDIUM",M[M.SLOW=30]="SLOW"}(M||(M={}))})();
