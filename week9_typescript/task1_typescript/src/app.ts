@@ -1,44 +1,68 @@
-type CreatePizza = {
-    name: 'string',
-    size: 'S' | 'M' | 'L',
-    crust: 'thin' | 'thick',
-    topping: {
-        name: string,
-        isHot: boolean,
-        quantity: string,
-    }
-    cookingDuration: bakingDuration,
-    price: number
+import { CreatePizza, Pizza, ApiError, ApiResponse, ApiResult, bakingDuration } from "./types";
+import { greekPizza, pizzaMargarita, tacoPizza } from "./dbPizzas";
+
+const menu = [] as Pizza[];
+
+interface changePizza {
+    addPizza: (pizza: CreatePizza, menu: Pizza[]) => Pizza
+    getPizza: (id: string, menu: Pizza[]) => Pizza
+    getHotPizzas: (menu: Pizza[]) => Pizza[] | Pizza
+    sortPizzas: (criterion: MyTYpe | MyType2, direction?: 'asc' | 'desc', menu?: Pizza[]) => void
+    getMenu: (menu: Pizza[]) => Pizza[]   
+} 
+
+// asc - с меньшего в большее
+
+type CriteriaCreatePizza = keyof CreatePizza 
+type CriteriaPizza = keyof Pizza
+
+type MyTYpe = 'date' 
+type MyType2 = 'name' | 'size' 
+
+
+
+const changePizzaMenu: changePizza = {
+    addPizza: (pizza, menu) => {
+        const id: string = pizza.name.slice(0, 4) + pizza.size
+
+        const newDate = Math.floor(new Date().getTime())
+
+        const newPizza = {
+            pizzaInformation: pizza,
+            id: id,
+            date: newDate
+        }
+
+        menu.push(newPizza)
+
+        return newPizza
+    },
+
+    getPizza: (id, menu) => menu.filter(pizza => pizza.id === id)[0],
+    
+    getHotPizzas: (menu) => menu.filter(pizza => pizza.pizzaInformation.topping.isHot),
+
+    sortPizzas: (criteria) => {
+        if (criteria in Array<keyof Pizza>) {
+            console.log(criteria)
+          
+        } else if (criteria in Array<keyof CreatePizza>) {
+            console.log(1)
+        }
+    },
+
+    getMenu: (menu) => menu
+
 }
 
-enum bakingDuration {
-    FAST = 10,
-    MEDIUM = 20,
-    SLOW = 30
-}
+changePizzaMenu.addPizza(pizzaMargarita, menu)
 
-type Pizza =  {
-    pizzaInformation: CreatePizza,
-    id: string
-    date: {
-        day: number,
-        month: number,
-        year: number,
-    } 
-}
 
-type ApiResult = {
-    success: true,
-    data: Pizza
-}
+/* console.log(changePizzaMenu.getPizza('MargS', menu))
 
-type ApiError = {
-    success: false,
-    error: Error,
-}
+console.log(changePizzaMenu.getHotPizzas(menu)) */
 
-type ApiResponse = ApiError | ApiResult
-
-const isApiError = (result: ApiResponse): result is ApiError => {
-    return (result as ApiError).error !== undefined;
-}
+/* changePizzaMenu.sortPizzas() */
+changePizzaMenu.addPizza(tacoPizza, menu)
+changePizzaMenu.addPizza(greekPizza, menu) 
+console.log(changePizzaMenu.getMenu(menu));
