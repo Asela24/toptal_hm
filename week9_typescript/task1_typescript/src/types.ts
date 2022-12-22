@@ -45,4 +45,21 @@ const isApiError = (result: ApiResponse): result is ApiError => {
     return (result as ApiError).error !== undefined;
 }
 
-export { Sizes, CreatePizza, Pizza, ApiError, ApiResponse, ApiResult, bakingDuration }
+
+interface changePizza {
+    addPizza: (pizza: CreatePizza, menu: Pizza[]) => Pizza
+    getPizza: (id: string, menu: Pizza[]) => Pizza
+    getHotPizzas: (menu: Pizza[]) => Pizza[] | Pizza
+    sortPizzas: (criterion:  CriteriaCreatePizza | CriteriaPizza, direction: DirectionType, menu: Pizza[]) => void
+    getMenu: (menu: Pizza[]) => Pizza[]   
+} 
+
+type CriteriaCreatePizza = keyof CreatePizza & TypesForSearch
+type CriteriaPizza = keyof Pizza & 'date'
+type TypeForSearchInput = string | number
+
+type DirectionType = 'asc' | 'desc'
+type TypesForSearch = 'name' | 'size' | 'price' | 'cookingTime' 
+
+
+export { Sizes, CreatePizza, Pizza, ApiError, ApiResponse, ApiResult, bakingDuration, changePizza, CriteriaCreatePizza, CriteriaPizza, TypeForSearchInput, DirectionType, TypesForSearch }
