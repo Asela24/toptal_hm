@@ -9,7 +9,7 @@ const pizzaMargarita: CreatePizza = {
         isHot: false,
         quantity: '560gr'
     },
-    cookingTime: bakingDuration.MEDIUM,
+    cookingTime: bakingDuration.SLOW,
     price: 500
 }
 

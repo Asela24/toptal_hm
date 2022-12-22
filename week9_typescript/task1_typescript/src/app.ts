@@ -44,13 +44,13 @@ const changePizzaMenu: changePizza = {
     sortPizzas: (criteria, di, menu) => {
        if (criteria === 'date') { // when i use array<keyof Pizza> it doesn't match it why?
             const a = menu.sort((a, b) => b.date - a.date );
-       } else if (criteria in Array<keyof CreatePizza>) {
+       } else {
             const sortedMenu = menu.sort((a, b) => {
-                console.log(a.pizzaInformation[criteria])
-                if (a.pizzaInformation[criteria] > b.pizzaInformation[criteria]) {
+                if (a.pizzaInformation[criteria] < b.pizzaInformation[criteria]) {
                     console.log(a.pizzaInformation[criteria])
-                    return 0
-                } else return -1
+                    console.log(a.pizzaInformation[criteria] < b.pizzaInformation[criteria])
+                    return -1
+                } else return 1
             })
             console.log(sortedMenu)
         }
@@ -71,3 +71,10 @@ changePizzaMenu.addPizza(greekPizza, menu)
  */
 setTimeout(()=> {changePizzaMenu.addPizza(tacoPizza, menu)}, 100)
 changePizzaMenu.sortPizzas("size", 'asc', menu)
+
+const sortFunction = (dir: directionType , a: Pizza, b:Pizza, criteria: CriteriaCreatePizza ): number =>  {
+    if (dir === 'asc') {
+        return a.pizzaInformation[criteria] < b.pizzaInformation[criteria] ? -1 : 1;
+    } else  return 0
+}
+

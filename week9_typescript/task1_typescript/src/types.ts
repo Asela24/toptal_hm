@@ -20,7 +20,7 @@ enum bakingDuration {
 enum Sizes {
     'S',
     'M',
-    'L'
+     'L',
 }
 
 type Pizza =  {
