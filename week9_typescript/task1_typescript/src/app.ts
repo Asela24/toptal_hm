@@ -17,7 +17,7 @@ type CriteriaCreatePizza = keyof CreatePizza & myType
 type CriteriaPizza = keyof Pizza & 'date'
 
 type directionType = 'asc' | 'desc'
-type myType = 'name' | 'size' | 'price'
+type myType = 'name' | 'size' | 'price' | 'cookingTime' 
 
 
 const changePizzaMenu: changePizza = {
@@ -41,17 +41,20 @@ const changePizzaMenu: changePizza = {
     
     getHotPizzas: (menu) => menu.filter(pizza => pizza.pizzaInformation.topping.isHot),
 
-    sortPizzas: (criteria, di) => {
-
-        if (criteria in Array<keyof Pizza>) {
-            console.log('first')
-            } 
-
-        if (criteria in Array<keyof CreatePizza>) {
-            console.log('second')
+    sortPizzas: (criteria, di, menu) => {
+       if (criteria === 'date') { // when i use array<keyof Pizza> it doesn't match it why?
+            const a = menu.sort((a, b) => b.date - a.date );
+       } else if (criteria in Array<keyof CreatePizza>) {
+            const sortedMenu = menu.sort((a, b) => {
+                console.log(a.pizzaInformation[criteria])
+                if (a.pizzaInformation[criteria] > b.pizzaInformation[criteria]) {
+                    console.log(a.pizzaInformation[criteria])
+                    return 0
+                } else return -1
+            })
+            console.log(sortedMenu)
         }
-
-        },
+            }, 
 
 
     getMenu: (menu) => menu
@@ -61,12 +64,10 @@ const changePizzaMenu: changePizza = {
 changePizzaMenu.addPizza(pizzaMargarita, menu)
 
 
-/* console.log(changePizzaMenu.getPizza('MargS', menu))
 
-console.log(changePizzaMenu.getHotPizzas(menu)) */
 
-/* changePizzaMenu.sortPizzas() */
-changePizzaMenu.addPizza(tacoPizza, menu)
 changePizzaMenu.addPizza(greekPizza, menu) 
-console.log(changePizzaMenu.getMenu(menu));
-changePizzaMenu.sortPizzas('date', 'asc', menu)
+/* console.log(changePizzaMenu.getMenu(menu))
+ */
+setTimeout(()=> {changePizzaMenu.addPizza(tacoPizza, menu)}, 100)
+changePizzaMenu.sortPizzas("size", 'asc', menu)

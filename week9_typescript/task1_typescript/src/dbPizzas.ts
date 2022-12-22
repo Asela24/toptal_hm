@@ -1,8 +1,8 @@
-import { CreatePizza, bakingDuration } from "./types";
+import { CreatePizza, bakingDuration, Sizes } from "./types";
 
 const pizzaMargarita: CreatePizza = {
     name: 'Margarita',
-    size: 'S',
+    size: Sizes.S,
     crust: 'thin',
     topping: {
         name: 'Cheese',
@@ -15,7 +15,7 @@ const pizzaMargarita: CreatePizza = {
 
 const pizza4Cheeses: CreatePizza = {
     name: 'Four Cheeses',
-    size: 'M',
+    size: Sizes.M,
     crust: 'thick',
     topping: {
         name: 'Artichokes',
@@ -29,7 +29,7 @@ const pizza4Cheeses: CreatePizza = {
 
 const tacoPizza: CreatePizza = {
     name: 'Taco Pizza',
-    size: 'L',
+    size: Sizes.L,
     crust: 'thick',
     topping: {
         name: 'Taco',
@@ -43,7 +43,7 @@ const tacoPizza: CreatePizza = {
 
 const whitePizza = {
     name: 'White Pizza',
-    size: 'L',
+    size: Sizes.L,
     crust: 'thin',
     topping: {
         name: 'White-sauce',
@@ -57,7 +57,7 @@ const whitePizza = {
 
 const greekPizza: CreatePizza = {
     name: 'Greek Pizza',
-    size: 'M',
+    size: Sizes.M,
     crust: 'thin',
     topping: {
         name: 'black olives',
@@ -71,7 +71,7 @@ const greekPizza: CreatePizza = {
 
 const breakfastPizza: CreatePizza = {
     name: 'Breakfast Pizza',
-    size: 'S',
+    size: Sizes.M,
     crust: 'thick',
     topping: {
         name: 'eggs',
