@@ -7,18 +7,17 @@ interface changePizza {
     addPizza: (pizza: CreatePizza, menu: Pizza[]) => Pizza
     getPizza: (id: string, menu: Pizza[]) => Pizza
     getHotPizzas: (menu: Pizza[]) => Pizza[] | Pizza
-    sortPizzas: (criterion: MyTYpe | MyType2, direction?: 'asc' | 'desc', menu?: Pizza[]) => void
+    sortPizzas: (criterion:  CriteriaCreatePizza | CriteriaPizza, direction: directionType, menu: Pizza[]) => void
     getMenu: (menu: Pizza[]) => Pizza[]   
 } 
 
 // asc - с меньшего в большее
 
-type CriteriaCreatePizza = keyof CreatePizza 
-type CriteriaPizza = keyof Pizza
+type CriteriaCreatePizza = keyof CreatePizza & myType
+type CriteriaPizza = keyof Pizza & 'date'
 
-type MyTYpe = 'date' 
-type MyType2 = 'name' | 'size' 
-
+type directionType = 'asc' | 'desc'
+type myType = 'name' | 'size' | 'price'
 
 
 const changePizzaMenu: changePizza = {
@@ -42,14 +41,18 @@ const changePizzaMenu: changePizza = {
     
     getHotPizzas: (menu) => menu.filter(pizza => pizza.pizzaInformation.topping.isHot),
 
-    sortPizzas: (criteria) => {
+    sortPizzas: (criteria, di) => {
+
         if (criteria in Array<keyof Pizza>) {
-            console.log(criteria)
-          
-        } else if (criteria in Array<keyof CreatePizza>) {
-            console.log(1)
+            console.log('first')
+            } 
+
+        if (criteria in Array<keyof CreatePizza>) {
+            console.log('second')
         }
-    },
+
+        },
+
 
     getMenu: (menu) => menu
 
@@ -66,3 +69,4 @@ console.log(changePizzaMenu.getHotPizzas(menu)) */
 changePizzaMenu.addPizza(tacoPizza, menu)
 changePizzaMenu.addPizza(greekPizza, menu) 
 console.log(changePizzaMenu.getMenu(menu));
+changePizzaMenu.sortPizzas('date', 'asc', menu)
