@@ -1,8 +1,7 @@
-
-
 import { useState } from 'react';
-import { CommentInterface } from '../../context/reducer';
 import { useUserComments } from '../../context/UserCommentsProvider';
+import { createCommentObject } from '../../utils';
+import './style.css'
 const InputComment = () => {
     const [value, setValue] = useState<string>('')
     const { dispatch } = useUserComments();
@@ -13,23 +12,11 @@ const InputComment = () => {
     }
 
     return (
-        <div>
-            <input type='text' value={value} onChange={(e) => setValue(e.target.value)} required></input>
+        <div className='input-container'>
+            <textarea  value={value} onChange={(e) => setValue(e.target.value)} required />
             <button onClick={() => handleInput()}>Submit</button>
         </div>
     )
-}
-
-const createCommentObject = (text: string) => {
-
-    const obj: CommentInterface  = {
-        id:Math.floor(Date.now() / 1000),
-        name: 'Max',
-        text: text,
-        count: 0
-    }
-
-    return obj;
 }
 
 export default InputComment;
