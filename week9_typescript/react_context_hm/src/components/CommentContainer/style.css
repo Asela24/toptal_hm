@@ -1,0 +1,11 @@
+.comment-container {
+    display: grid;
+    grid-template-columns: 700px;
+    justify-content: center;
+    gap: 30px;
+    
+}
+
+.comment-container > div {
+    height: 100px;
+}

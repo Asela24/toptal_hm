@@ -1,0 +1,7 @@
+.comment {
+    display: grid;
+}
+
+.comment-text {
+    font-size: 16px;
+}
