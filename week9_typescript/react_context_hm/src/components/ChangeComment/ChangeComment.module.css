@@ -1,0 +1,23 @@
+@value colors: '../../styles/colors.css';
+@value primary-moderate-blue, primary-soft-red from colors;
+
+.comment {
+   flex-grow: 2;
+
+   display: flex;
+   justify-content: flex-end;
+   gap: 20px;
+   font-weight: 400;
+}
+
+img ~ span {
+    margin-left: 5px;
+}
+
+span {
+    color: primary-soft-red ;
+}
+
+div:nth-child(2) > span {
+    color: primary-moderate-blue;
+}

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useUserComments } from '../../context/UserCommentsProvider';
 import { createCommentObject } from '../../utils';
-import './style.css'
+import styles from './InputComment.module.css'
+
+
 const InputComment = () => {
     const [value, setValue] = useState<string>('')
     const { dispatch } = useUserComments();
@@ -12,7 +14,8 @@ const InputComment = () => {
     }
 
     return (
-        <div className='input-container'>
+        <div className={styles['input-container']}>
+            <img src='/avatarMan.png' alt='avatar'/>
             <textarea  value={value} onChange={(e) => setValue(e.target.value)} required />
             <button onClick={() => handleInput()}>Submit</button>
         </div>

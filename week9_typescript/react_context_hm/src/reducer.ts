@@ -62,6 +62,7 @@ export type Action =
 export type CommentInterface = {
     id: number,
     name: string,
+    avatar: string,
     text: string,
     count: number,
     inputDisabled: boolean,
@@ -79,14 +80,16 @@ export const initialState = {
         {
         id: 1,
         name: 'Max',
-        text: "There are many variations of passages of Lorem Ipsum ",
+        avatar: '/avatarMan.png',
+        text: "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
         count: 10,
         inputDisabled: true,
     },
     {
         id: 2,
         name: 'Mary',
-        text: 'All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary',
+        avatar: '/avatar.png',
+        text: 'All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, on the Internet tend to repeat predefined chunks as necessary',
         count: 5,
         inputDisabled: true,
     }

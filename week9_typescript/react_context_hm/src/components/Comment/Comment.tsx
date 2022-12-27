@@ -4,7 +4,8 @@ import ChangeComment from '../ChangeComment';
 import { useState } from 'react';
 import { useUserComments } from '../../context/UserCommentsProvider';
 import { useCurrentUser } from '../../context/CurrentUserProvider';
-import './style.css'
+
+import styles from './Comment.module.css'
 
 const Comment = ({card} : {card: CommentInterface}) => {
 
@@ -21,13 +22,15 @@ const Comment = ({card} : {card: CommentInterface}) => {
     } 
 
     return (
-        <div className='comment'>
-
+        <div className={styles.comment}>
             <Count id={card.id} />
-            <div className="comment-author">{card.name}</div>
-            <textarea className='comment-text' value={input} onChange={e => handleInputChange(e.target.value)} disabled={card.inputDisabled} />
-
-            {isAuthorOfComment ? <ChangeComment id={card.id}/> : null}
+            <div className={styles.author}> 
+                <img src={card.avatar} alt='avatar'/>
+                <div>{card.name}</div>
+                {isAuthorOfComment ? <div className={styles.youTag}>you</div> : null}
+                {isAuthorOfComment ? <ChangeComment id={card.id}/> : null}
+            </div>
+            <textarea className={styles.text} value={input} onChange={e => handleInputChange(e.target.value)} disabled={card.inputDisabled} />
         </div>
     )
 }

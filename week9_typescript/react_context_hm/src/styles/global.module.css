@@ -1,0 +1,17 @@
+@value colors: './colors.css';
+@value neutral-very-light-gray from colors;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body > div {
+    min-height: 100vh;
+    background-color: neutral-very-light-gray;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}

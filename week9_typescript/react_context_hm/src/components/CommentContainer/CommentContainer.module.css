@@ -1,0 +1,10 @@
+.comment-container {
+    display: grid;
+    grid-template-columns: 750px;
+    justify-content: center;
+    gap: 20px;
+
+    font-size: 16px;
+    padding: 30px 15px;
+    height: 100%;    
+}

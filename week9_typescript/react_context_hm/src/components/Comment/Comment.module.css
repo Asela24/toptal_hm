@@ -1,0 +1,66 @@
+@value colors: '../../styles/colors.css';
+@value neutral-white, neutral-grayish-blue, primary-moderate-blue from colors;
+
+.comment {
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 58px 1fr;
+    gap: 2px;
+    max-width: 750px;
+    align-items: center;
+   
+    background-color: neutral-white;
+    padding: 5px 20px;
+    border-radius: 10px;
+    line-height: 26px;
+
+    font-family: 'Rubik', sans-serif;
+}
+
+.text {
+    font-size: 16px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    text-align: justify;
+    min-height: 100px;
+    width: 100%;
+}
+
+.author {
+    grid-column: 2 / 3;
+    grid-row: 1/2;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    font-weight: 500;
+}
+
+.author > img {
+    max-width: 7%;
+}
+
+textarea:disabled {
+    border: none;
+    background: none;
+}
+
+.youTag {
+    background-color: primary-moderate-blue;
+    color: neutral-white;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 2px 10px 3px;
+    line-height: normal;
+}
+
+textarea {
+    border: none;
+    background-color: neutral-grayish-blue;
+    margin-right: 20px;
+
+    font-family: 'Rubik', sans-serif;
+    line-height: 26px;
+}

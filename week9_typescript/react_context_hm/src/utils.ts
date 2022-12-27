@@ -8,6 +8,7 @@ export const createCommentObject = (text: string) => {
         text: text,
         count: 0,
         inputDisabled: true,
+        avatar: '/avatarMan.png'
     }
 
     return obj;

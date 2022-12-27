@@ -1,0 +1,33 @@
+@value colors: '../../styles/colors.css';
+@value primary-moderate-blue, neutral-very-light-gray from colors;
+
+.count {
+    grid-row:  1 / 4;
+    grid-column: 1 / 2;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: neutral-very-light-gray;
+    border-radius: 10px;
+    width: 48px;
+    height: 98px;
+}
+
+.count > div {
+    font-size: 16px;
+    color: primary-moderate-blue;
+    font-weight: 500;
+    line-height: 26px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.count > button {
+    border: none;
+    background: none;
+    color: hsl(238deg 40% 52% / 44%);
+    font-size: 20px;
+    
+    font-weight: 600;
+}
