@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { CommonProps } from "../types";
-import { getSize, getBackgroundColor, getFontSize, getActiveShadow } from "./styled-system";
+import { getSize, getBackgroundColor, getFontSize, getActiveShadow } from "../style/styled-system";
 
 export interface ButtonProps extends CommonProps {
     size?: 'large' | 'medium' | 'small' | 'full'

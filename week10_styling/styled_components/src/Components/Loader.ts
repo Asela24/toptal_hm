@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { CommonProps } from "../types";
-import { getAnimationSpeed, getBackgroundColor, getLoaderSize } from "./styled-system";
+import { getAnimationSpeed, getBackgroundColor, getLoaderSize } from "../style/styled-system";
 
 const rotate = keyframes`
     from {

@@ -1,5 +1,5 @@
 import { colorsType } from '../types';
-import { defaultTheme } from './colorTheme';
+import { defaultTheme } from './theme';
 
 export const getBackgroundColor = ({ variant = 'primary' }: { variant?: keyof colorsType }) => defaultTheme.variants[variant];
 
@@ -19,6 +19,8 @@ export const getLoaderSize = ({ size = 'medium' }: { size? : string }) => (
         height: defaultTheme.loaderSizes[size].height
     }
 )
+
+export const getWidthSize = ({ width = 'medium' }: { width? : string }) => `width: ${defaultTheme.sizes[width].width}`
 
 export const getAnimationSpeed = ({ speed = 'medium' } : { speed?: string }) => defaultTheme.animationSpeed[speed]
 

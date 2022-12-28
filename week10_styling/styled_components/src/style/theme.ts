@@ -51,14 +51,6 @@ export const defaultTheme: BaseTheme = {
         medium: '1.5s',
         fast: '1s'
     }
-   
 }
 
 
-
-/* inputType: {
-    filled: {
-        color: 'gray',
-        border: 'none',
-    }
-} */
