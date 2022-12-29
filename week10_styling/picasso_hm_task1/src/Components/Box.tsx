@@ -1,7 +1,7 @@
 import { Code16, Container,Typography } from '@toptal/picasso';
 export const Box = () => {
     return (
-        <Container bordered rounded padded='medium' top='medium'>
+        <Container bordered rounded padded='medium' top='small'>
             <Container bordered rounded padded={'medium'}>
                 <Typography variant='heading' color='black' size='large'>
                      Box 1 Title

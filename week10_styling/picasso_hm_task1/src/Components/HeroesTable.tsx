@@ -2,7 +2,7 @@ import { Container, Table, Typography } from '@toptal/picasso';
 import data from '../db'
 export const HeroesTable = () => {
     return (
-        <Container bordered rounded top='medium' padded='medium'>
+        <Container bordered rounded top='small' padded='medium'>
             <Typography variant='heading' size='large' color='black'>Heroes</Typography>
             <Table variant='striped' >
                 <Table.Head>
