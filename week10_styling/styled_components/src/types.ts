@@ -1,4 +1,4 @@
-export type colorsType = {
+export type ColorsType = {
     primary: string,
     secondary: string,
     error: string,
@@ -9,7 +9,7 @@ export type colorsType = {
 
 
 export interface BaseTheme {
-    variants: colorsType,
+    variants: ColorsType,
     sizes: {
         [key: string]: {
             width: string,

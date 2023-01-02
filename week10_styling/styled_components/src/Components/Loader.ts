@@ -12,7 +12,6 @@ const rotate = keyframes`
     }
 
 `
-
 interface LoaderType extends CommonProps {
     size?: 'large' | 'medium' | 'small' 
     speed?: 'slow' | 'medium' | 'fast'

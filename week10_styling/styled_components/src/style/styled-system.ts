@@ -1,7 +1,7 @@
-import { colorsType } from '../types';
+import { ColorsType } from '../types';
 import { defaultTheme } from './theme';
 
-export const getBackgroundColor = ({ variant = 'primary' }: { variant?: keyof colorsType }) => defaultTheme.variants[variant];
+export const getBackgroundColor = ({ variant = 'primary' }: { variant?: keyof ColorsType }) => defaultTheme.variants[variant];
 
 export const getSize = ({ size = 'medium' } : { size?: string} )  => (
     {
@@ -11,7 +11,7 @@ export const getSize = ({ size = 'medium' } : { size?: string} )  => (
 
 export const getFontSize = ({ fontSize = 'medium' }: { fontSize?: string }) =>`font-size: ${defaultTheme.fontSize[fontSize]}`;
 
-export const getActiveShadow = (active?: string, variant: keyof colorsType = 'primary') => active ? 'none' : `1px 1px 10px ${defaultTheme.variants[variant]}`; 
+export const getActiveShadow = (active?: string, variant: keyof ColorsType = 'primary') => active ? 'none' : `1px 1px 10px ${defaultTheme.variants[variant]}`; 
 
 export const getLoaderSize = ({ size = 'medium' }: { size? : string }) => (
     {
